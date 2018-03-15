@@ -1,3 +1,4 @@
+ #include <algorithm>
 #include "Poltnomial.h"
 using namespace std;
 Polynomial Polynomial::Add(Polynomial a,Polynomial b)
@@ -35,14 +36,13 @@ Polynomial Polynomial::Add(Polynomial a,Polynomial b)
         }
     }
 }
-
-void Poltnomial::NewTerm(Polynomial a,const float theCoeff,const int theExp)
+void Polynomial::NewTerm(Polynomial a,const float theCoeff,const int theExp) 
 //Add a new term to the end of termArray  添加一个新的项在多项式的数组尾
 {
    if(a.terms == a.capacity)
    {
        a.capacity*=2;
-       Term *temp=new term[a.capacity];             //根据重新乘好的参数  重新设置一个 new array
+       Term *temp=new Term[a.capacity];             //根据重新乘好的参数  重新设置一个 new array
        copy(a.termArray,a.termArray+a.terms,temp);
        delete [] a.termArray;                       //删除掉以前的数组。
        a.termArray=temp;
