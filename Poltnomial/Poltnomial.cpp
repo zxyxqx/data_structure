@@ -65,7 +65,7 @@ void Poltnomial::NewTerm(Polynomial a,const float theCoeff,const int theExp)
 
 
 
-//test
+
 
 
 
