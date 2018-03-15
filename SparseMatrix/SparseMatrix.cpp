@@ -4,7 +4,7 @@
 using namespace std;
 SparseMatrix SparseMatrix::Transpose() 
 {//Return the transpose of *this
-    SparseMatrix b(cols,rows,terms);//capacity of b.smArray is terms
+    SparseMatrix b(cols,rows,terms);                              //capacity of b.smArray is terms
     if(terms>0)
     {
         //nonzero matrix
@@ -62,7 +62,9 @@ void SparseMatrix::ChangeSizeID(const int newSize)      //改变一个一维数�
     if(newSize<terms) throw"New size must be >=number of terms";
     MatrixTerm *temp=new MatrixTerm[newSize];//new array
     copy(smArray,smArray+terms,temp);
-
+    delete [] smArray;
+    smArray=temp;
+    capacity=newSize;
 }
 
 void SparseMatrix::StoreSum(const int sum,const int r,const int c)
